@@ -1,0 +1,24 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Banco de dados
+*.db
+*.sqlite
+*.sqlite3
+
+
+# Uploads de usuários
+static/uploads/*
+
+# Mantém a pasta uploads no Git
+!static/uploads/.gitkeep
+
+# IDEs
+.vscode/
+.idea/
+
+

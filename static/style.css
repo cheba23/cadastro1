@@ -1,0 +1,220 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* CONTEÚDO */
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+/* TÍTULOS */
+h3 {
+    margin-bottom: 20px;
+    color: #222;
+    font-size: 22px;
+}
+
+/* FORMULÁRIOS */
+form {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #2563eb;
+}
+
+/* LABELS */
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* BOTÕES */
+button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* PESQUISA */
+form[action*="buscar"] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+form[action*="buscar"] input {
+    margin: 0;
+}
+
+form[action*="buscar"] button {
+    white-space: nowrap;
+}
+
+/* TABELA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+thead {
+    background: #2563eb;
+    color: white;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* IMAGENS DOS PRODUTOS */
+td img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* BOTÃO EXCLUIR */
+td form {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+td form button {
+    background: #dc2626;
+    padding: 9px 13px;
+}
+
+td form button:hover {
+    background: #b91c1c;
+}
+
+/* MENSAGENS */
+.mensagem {
+    padding: 13px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.mensagem.sucesso {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.mensagem.erro {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* IMAGEM NA EDIÇÃO */
+form img {
+    margin: 12px 0;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* TEXTO AUXILIAR */
+form p {
+    color: #777;
+    font-size: 12px;
+    margin: 8px 0 15px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 700px) {
+
+    main {
+        width: 95%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    form[action*="buscar"] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,110 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>Editar Produto</h3>
+
+    <!-- MENSAGENS -->
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="mensagem {{ categoria }}">
+                    {{ mensagem }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    <!-- FORMULÁRIO DE EDIÇÃO -->
+    <form
+        action="{{ url_for('produtos.editar', id=produto.id) }}"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <!-- NOME -->
+        <label>Nome do produto</label>
+
+        <input
+            type="text"
+            name="nomeForm"
+            value="{{ produto.nome }}"
+            placeholder="Nome do produto"
+            required
+        >
+
+
+        <!-- PREÇO -->
+        <label>Preço</label>
+
+        <input
+            type="number"
+            step="0.01"
+            name="precoForm"
+            value="{{ produto.preco }}"
+            placeholder="Preço"
+            required
+        >
+
+
+        <!-- CATEGORIA -->
+        <label>Categoria</label>
+
+        <select name="categoria_id" required>
+
+            <option value="">Selecione uma categoria</option>
+
+            {% for c in categorias %}
+
+                <option
+                    value="{{ c.id }}"
+                    {% if c.id == produto.categoria_id %}
+                        selected
+                    {% endif %}
+                >
+                    {{ c.nome }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <!-- IMAGEM ATUAL -->
+        <label>Imagem atual</label>
+
+        <div>
+            <img
+                src="{{ url_for('static', filename='uploads/' + produto.imagem) }}"
+                alt="{{ produto.nome }}"
+                width="150"
+            >
+        </div>
+
+
+        <!-- NOVA IMAGEM -->
+        <label>Alterar imagem</label>
+
+        <input
+            type="file"
+            name="campo_imagem"
+            accept="image/png,image/jpeg,image/webp"
+        >
+
+        <p>Se não selecionar uma nova imagem, a atual será mantida.</p>
+
+
+        <!-- BOTÕES -->
+        <button type="submit">
+            Salvar alterações
+        </button>
+
+        <a href="{{ url_for('home') }}">
+            Cancelar
+        </a>
+
+    </form>
+
+{% endblock %}
